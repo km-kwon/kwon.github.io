@@ -218,6 +218,8 @@ video{
   transition: all 1s;
 }
 #todoBar ul li span:nth-child(1){
+  display: flex;
+  align-items: center;
   width: 30vw;
 }
 #todoBar ul li div{
