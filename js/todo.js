@@ -20,20 +20,19 @@ function saveToDos(){
 
 
 function deleteTodo(event){
-    const li = event.target.parentElement;
+    const li = event.target.parentElement.parentElement;
     li.remove(); 
-    toDos = toDos.filter(todo => todo.id !== parseInt(li.id));
+    toDos = toDos.filter((todo) => todo.id !== parseInt(li.id));
     //filter는 함수 내용을 바꾸는 함수가 아님
-
     saveToDos();
 }
 
 function checkTodo(event){
-    const li = event.target.parentElement;
+    const li = event.target.parentElement.parentElement;
     if(li.style.textDecoration === "line-through"){
         li.style.textDecoration = "none";
     }else{
-     li.style.textDecoration = "line-through"
+     li.style.textDecoration = "line-through";
     }
 }
 
@@ -48,7 +47,6 @@ function paintTodo(newTodo){
     icon.addEventListener("click",deleteTodo);
     const icon2 = document.createElement("ion-icon");
     icon2.name = "checkmark-outline"
-    
     icon2.addEventListener("click", checkTodo);
     li.appendChild(span); //appen은 거의 마지막에 넣기
     div.appendChild(icon);
